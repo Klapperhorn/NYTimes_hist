@@ -49,6 +49,8 @@ def runSerach(SuchName, results=2,years=(2020,2023),API_key=NYT_api_key()):
     nyt=NYTAPI(API_key, parse_dates=True)
     
     query=SuchName.strip()
+    if query[0]!='"' and query[-1]!='"':
+        query='"'+query+'"'
     import datetime as dt
     
     begin=dt.datetime(years[0], 1, 1)
