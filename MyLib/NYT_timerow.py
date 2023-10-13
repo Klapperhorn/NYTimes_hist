@@ -93,7 +93,16 @@ def generate_neutral_series(sample="M"):
     
     return neutral
     
+def GiveFilenamesFromSearch(SL):
+    import glob
+    filenames=[]
     
+    for DataName in SL:
+        DataName=DataName.replace(" ","")
+        filenames+=glob.glob(f"*_NYtimes_{DataName}*.json")
+        
+    print("Number of Json Files: ", len(filenames))
+    return filenames
     
 
 
